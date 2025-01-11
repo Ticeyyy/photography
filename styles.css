@@ -3,20 +3,39 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    min-height: 100vh;
-    background-color: #f0f0f0;
+    background-color: #f4f4f4;
 }
 
-.carousel {
-    width: 90%;
-    max-width: 1200px;
-    margin: 20px auto;
+h1 {
+    text-align: center;
+    margin: 20px 0;
 }
 
-.slick-slide img {
+.gallery-container {
+    width: calc(100% - 400px); /* 200px margin on each side */
+    max-width: 1200px; /* Optional: Limit max width for larger screens */
+    margin: 0 auto;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 1px; /* Reduced gap for closer images */
+    padding: 20px;
+}
+
+
+.gallery img {
     width: 100%;
     height: auto;
-    border-radius: 10px;
+    display: block;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+}
+
+.gallery div:nth-child(3n+1) img {
+    grid-row: span 2; /* Horizontally oriented images span 2 rows */
+    height: 100%; /* Ensures it fills the container */
 }
